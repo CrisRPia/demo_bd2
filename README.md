@@ -55,7 +55,7 @@ Esta demostración presenta dos soluciones de monitoreo populares (Prometheus/Gr
 ### Zabbix (Monitoreo Empresarial)
 
 - **URL**: http://localhost:8080
-- **Usuario**: `admin` / **Contraseña**: `zabbix`
+- **Usuario**: `Admin` / **Contraseña**: `zabbix`
 - **Características**:
   - Monitoreo integral de hosts
   - Alertas y notificaciones integradas
