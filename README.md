@@ -1,6 +1,6 @@
 # Demo de Monitoreo Multi-Plataforma
 
-Esta demostración presenta tres soluciones de monitoreo populares (Prometheus/Grafana y Zabbix) monitoreando la misma base de datos PostgreSQL, permitiendo comparar sus enfoques y capacidades.
+Esta demostración presenta dos soluciones de monitoreo populares (Prometheus/Grafana y Zabbix) monitoreando la misma base de datos PostgreSQL, permitiendo comparar sus enfoques y capacidades.
 
 ## Arquitectura
 
