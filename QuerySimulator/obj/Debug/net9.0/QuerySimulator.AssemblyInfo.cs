@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuerySimulator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82d4192a4d4831f588e2a15a859041a40f6eeecb")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuerySimulator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuerySimulator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

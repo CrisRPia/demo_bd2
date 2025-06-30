@@ -58,12 +58,10 @@ public class Program
         var birthDate = new DateOnly(Rng.Next(1980, 2006), Rng.Next(1, 13), Rng.Next(1, 29));
 
         long newUserId;
-        await using (var cmd = dataSource.CreateCommand("INSERT INTO users (name, birth) VALUES ($1, $2) RETURNING id"))
-        {
-            cmd.Parameters.AddWithValue(randomName);
-            cmd.Parameters.AddWithValue(birthDate);
-            newUserId = (int)(await cmd.ExecuteScalarAsync() ?? -1);
-        }
+        using var cmd = dataSource.CreateCommand("INSERT INTO users (name, birth) VALUES ($1, $2) RETURNING id");
+        cmd.Parameters.AddWithValue(randomName);
+        cmd.Parameters.AddWithValue(birthDate);
+        newUserId = (int)(await cmd.ExecuteScalarAsync() ?? -1);
 
         if (newUserId != -1)
         {
@@ -74,14 +72,12 @@ public class Program
             for (int i = 0; i < actionCount; i++)
             {
                 var randomAction = ActionDescriptors[Rng.Next(ActionDescriptors.Length)];
-                await using (var actionCmd = dataSource.CreateCommand("INSERT INTO actions (descriptor, userid, done_at) VALUES ($1, $2, NOW())"))
-                {
-                    actionCmd.Parameters.AddWithValue(randomAction);
-                    actionCmd.Parameters.AddWithValue(newUserId);
-                    await actionCmd.ExecuteNonQueryAsync();
-                }
+                using var actionCmd = dataSource.CreateCommand("INSERT INTO actions (descriptor, userid, done_at) VALUES ($1, $2, NOW())");
+                actionCmd.Parameters.AddWithValue(randomAction);
+                actionCmd.Parameters.AddWithValue(newUserId);
+                await actionCmd.ExecuteNonQueryAsync();
                 Console.WriteLine($"-- Action '{randomAction}' recorded for user ID: {newUserId}");
-                await Task.Delay(Rng.Next(200, 800)); // Short delay between actions
+                await Task.Delay(Rng.Next(200, 800));
             }
         }
     }

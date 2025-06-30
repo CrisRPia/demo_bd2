@@ -1,0 +1,54 @@
+{
+    "zabbix_export": {
+        "version": "7.2",
+        "host_groups": [
+            {
+                "uuid": "748ad4d098d447d492bb935c907f652f",
+                "name": "Databases"
+            }
+        ],
+        "hosts": [
+            {
+                "host": "PostgreSQL Demo DB",
+                "name": "PostgreSQL Demo DB",
+                "templates": [
+                    {
+                        "name": "Linux by Zabbix agent"
+                    },
+                    {
+                        "name": "PostgreSQL by Zabbix agent 2"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "Databases"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "useip": "NO",
+                        "dns": "zabbix-agent",
+                        "interface_ref": "if1"
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$PG.CONNSTRING.AGENT2}",
+                        "value": "tcp://postgres:5432",
+                        "description": "URI or named session of the PostgreSQL instance."
+                    },
+                    {
+                        "macro": "{$PG.DATABASE}",
+                        "value": "demodb",
+                        "description": "Default PostgreSQL database for the connection."
+                    },
+                    {
+                        "macro": "{$PG.PASSWORD}",
+                        "value": "zbx_pass",
+                        "description": "PostgreSQL user password."
+                    }
+                ]
+            }
+        ]
+    }
+}

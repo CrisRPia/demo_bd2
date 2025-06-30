@@ -3,12 +3,9 @@ global:
 
 scrape_configs:
   - job_name: 'prometheus'
-    # Scrapes prometheus itself
     static_configs:
       - targets: ['localhost:9090']
 
   - job_name: 'postgres'
-    # The target is the postgres_exporter service, which is discoverable
-    # by its service name on the Docker network.
     static_configs:
       - targets: ['postgres_exporter:9187']
