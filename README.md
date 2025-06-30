@@ -29,7 +29,7 @@ Esta demostración presenta tres soluciones de monitoreo populares (Prometheus/G
    - Usuario: `admin` / Contraseña: `zabbix`
    - Navegar a **Configuration → Hosts**
    - Hacer clic en **Import** (arriba a la derecha)
-   - Subir el archivo `zabbix-host-config.xml` proporcionado
+   - Subir el archivo [de host](./zabbix/zbx_export_hosts.json)  proporcionado
    - Hacer clic en **Import** con la configuración predeterminada
 
 ## Accediendo a las Plataformas de Monitoreo
